@@ -6,9 +6,9 @@
     http://www.springframework.org/schema/beans/spring-beans.xsd
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
-    <bean id="testBean"
-    class="khorsun.springcourse.TestBean">
-        <constructor-arg value="Khorsun"/>
+    <bean id="musicBean"
+    class="khorsun.springcourse.ClassicalMusic">
+
 
     </bean>
 
