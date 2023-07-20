@@ -17,7 +17,10 @@
           class="khorsun.springcourse.RockMusic">
     </bean>
     <bean id="musicPlayer"
-    class="khorsun.springcourse.MusicPlayer">
+    class="khorsun.springcourse.MusicPlayer"
+          init-method="doMyInit"
+          destroy-method="doMyDestroy"
+    scope="prototype">
         <property name="music">
             <list>
                 <ref bean="musicBeanClassical"/>
@@ -25,6 +28,8 @@
                 <ref bean="musicBeanRock"/>
             </list>
         </property>
+        <property name="name" value="Eminem"/>
+        <property name="volume" value="70"/>
 
     </bean>
 
