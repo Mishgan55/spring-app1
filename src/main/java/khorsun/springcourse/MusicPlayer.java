@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 
 
 @Component
+
 public class MusicPlayer {
     private Music music1;
     private Music music2;
@@ -36,6 +37,7 @@ public class MusicPlayer {
     public void doMyInit(){
         System.out.println("Initialization");
     }
+
     public void doMyDestroy(){
         System.out.println("Do destroy");
     }
