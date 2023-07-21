@@ -1,23 +1,32 @@
 package khorsun.springcourse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 
 @Component
 public class MusicPlayer {
-    private ClassicalMusic classicalMusic;
-    private  RapMusic rapMusic;
-    private  RockMusic rockMusic;
-    @Autowired
-    public MusicPlayer(ClassicalMusic classicalMusic, RapMusic rapMusic, RockMusic rockMusic) {
-        this.classicalMusic = classicalMusic;
-        this.rapMusic = rapMusic;
-        this.rockMusic = rockMusic;
+    private Music music1;
+    private Music music2;
+
+    public MusicPlayer(@Qualifier("classicalMusic") Music music1,
+                       @Qualifier("rockMusic") Music music2) {
+        this.music1 = music1;
+        this.music2 = music2;
     }
 
-    public String playMusic(){
-        return classicalMusic.getSong();
+    public String playMusic(Enum<Genre> genreEnum){
+        if (genreEnum==Genre.ROCK)
+        {
+             return music2.getSong();
+        } else if (genreEnum==Genre.CLASSICAL) {
+             return music1.getSong();
+        }else {
+            return "Wrong genre ";
+        }
+
+
     }
 
 
