@@ -1,53 +1,29 @@
 package khorsun.springcourse;
 
-import java.util.ArrayList;
-import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+
+@Component
 public class MusicPlayer {
-    private List<Music> music = new ArrayList<>();
-    private String name;
-    private int volume;
-
-    public List<Music> getMusic() {
-        return music;
+    private ClassicalMusic classicalMusic;
+    private  RapMusic rapMusic;
+    private  RockMusic rockMusic;
+    @Autowired
+    public MusicPlayer(ClassicalMusic classicalMusic, RapMusic rapMusic, RockMusic rockMusic) {
+        this.classicalMusic = classicalMusic;
+        this.rapMusic = rapMusic;
+        this.rockMusic = rockMusic;
     }
 
-    public void setMusic(List<Music> music) {
-        this.music = music;
-    }
-
-    public MusicPlayer(List<Music> music) {
-        this.music = music;
-    }
-
-    public MusicPlayer() {
+    public String playMusic(){
+        return classicalMusic.getSong();
     }
 
 
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getVolume() {
-        return volume;
-    }
-
-    public void setVolume(int volume) {
-        this.volume = volume;
-    }
-
-    public void playSong(){
-        for (Music music1: music){
-            System.out.println(music1.getSong());
-        }
 
 
-    }
     public void doMyInit(){
         System.out.println("Initialization");
     }
