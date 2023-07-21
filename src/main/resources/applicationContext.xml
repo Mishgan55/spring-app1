@@ -7,31 +7,7 @@
     http://www.springframework.org/schema/beans/spring-beans.xsd
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
-    <bean id="musicBeanClassical"
-    class="khorsun.springcourse.ClassicalMusic">
-    </bean>
-    <bean id="musicBeanRap"
-    class="khorsun.springcourse.RapMusic">
-    </bean>
-    <bean id="musicBeanRock"
-          class="khorsun.springcourse.RockMusic">
-    </bean>
-    <bean id="musicPlayer"
-    class="khorsun.springcourse.MusicPlayer"
-          init-method="doMyInit"
-          destroy-method="doMyDestroy"
-    scope="prototype">
-        <property name="music">
-            <list>
-                <ref bean="musicBeanClassical"/>
-                <ref bean="musicBeanRap"/>
-                <ref bean="musicBeanRock"/>
-            </list>
-        </property>
-        <property name="name" value="Eminem"/>
-        <property name="volume" value="70"/>
-
-    </bean>
+  <context:component-scan base-package="khorsun.springcourse"/>
 
 
 </beans>
